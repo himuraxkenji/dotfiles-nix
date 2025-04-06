@@ -57,6 +57,7 @@
                   cargo
 
                   # ─── Compilers and system utilities ───
+                  zulu17
                   gcc
                   fd
                   ripgrep
