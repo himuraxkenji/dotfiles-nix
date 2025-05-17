@@ -16,7 +16,7 @@
       pkgs = import nixpkgs { inherit system; };  # Import nixpkgs for the specified system
     in {
       homeConfigurations = {
-        "himura" =
+        "gentleman" =
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [
@@ -64,13 +64,8 @@
                   fd
                   ripgrep
                   coreutils
+                  bat
                   lazygit
-                  pngpaste
-                  luarocks
-                  imagemagick
-                  ghostscript
-                  tectonic
-                  mermaid-cli
 
                   # ─── Nerd Fonts ───
                   nerd-fonts.iosevka-term
