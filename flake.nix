@@ -16,7 +16,7 @@
       pkgs = import nixpkgs { inherit system; };  # Import nixpkgs for the specified system
     in {
       homeConfigurations = {
-        "gentleman" =
+        "himura" =
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [

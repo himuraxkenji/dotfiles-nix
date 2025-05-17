@@ -9,8 +9,8 @@ return {
   opts = {
     workspaces = {
       {
-        name = "GentlemanNotes", -- Name of the workspace
-        path = os.getenv("HOME") .. "/.config/obsidian", -- Path to the notes directory
+        name = "HimuraNotes", -- Name of the workspace
+        path = os.getenv("HOME"), -- Path to the notes directory
       },
     },
     completition = {
