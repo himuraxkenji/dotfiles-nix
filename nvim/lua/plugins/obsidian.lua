@@ -10,9 +10,16 @@ return {
     workspaces = {
       {
         name = "HimuraNotes", -- Name of the workspace
-        path = os.getenv("HOME"), -- Path to the notes directory
+        path = os.getenv("HOME") .. "/HimuraNotes", -- Path to the notes directory
       },
     },
+    daily_notes = {
+      folder = "01 - Daily Notes",
+      date_format = "%Y-%m-%d",
+      template = "999 - Template/daily.md", -- Template for daily notes
+    },
+    notes_subdir = "00 - Inbox",
+    new_notes_location = "notes_subdir",
     completition = {
       blink = true,
     },
@@ -44,9 +51,20 @@ return {
       },
     },
 
+    note_id_func = function(title)
+      local suffix = ""
+      if title ~= nil then
+        suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+      else
+        for _ = 1, 4 do
+          suffix = suffix .. string.char(math.random(65, 90))
+        end
+      end
+      return tostring(os.time()) .. "-" .. suffix
+    end,
     -- Settings for templates
     templates = {
-      subdir = "templates", -- Subdirectory for templates
+      subdir = "999 - Template", -- Subdirectory for templates
       date_format = "%Y-%m-%d-%a", -- Date format for templates
       gtime_format = "%H:%M", -- Time format for templates
       tags = "", -- Default tags for templates
