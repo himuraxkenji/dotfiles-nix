@@ -60,13 +60,11 @@
                   nodejs
                   bun
                   cargo
-                  go
-                  nil
-                  unstablePkgs.goose-cli
 
                   # ─── Compilers and system utilities ───
                   go
                   nil
+                  unstablePkgs.goose-cli
                   zulu21
                   gcc
                   fd
