@@ -25,7 +25,7 @@
       autoload -Uz compinit
       # Use a directory in .cache or as you prefer
       compinit -d "$${XDG_CACHE_HOME:-$${HOME}/.cache}/zsh/zcompdump-$${ZSH_VERSION}"
-      
+
       # --------------------------
       # 2) FZF
       # --------------------------
@@ -53,6 +53,22 @@
       eval "$(atuin init zsh)"
       eval "$(starship init zsh)"
 
+      ya_zed() {
+          local tmp
+          tmp=$(mktemp -t "yazi-chooser.XXXXXXXXXX")
+          yazi --chooser-file "$tmp" "$@"
+
+          if [[ -s "$tmp" ]]; then
+              local opened_file
+              opened_file=$(head -n 1 "$tmp")
+              if [[ -n "$opened_file" ]]; then
+                  zed -- "$opened_file"
+              fi
+          fi
+
+          rm "$tmp"
+      }
+
       # --------------------------
       # 5) Final cleanup
       # --------------------------
@@ -78,16 +94,6 @@
         if [ -x "$BREW_BIN/brew" ]; then
           eval "$($BREW_BIN/brew shellenv)"
         fi
-      fi
-
-      # --------------------------
-      # 7) LS configuration 
-      # --------------------------
-      export LS_COLORS="di=38;5;67:ow=48;5;60:ex=38;5;132:ln=38;5;144:*.tar=38;5;180:*.zip=38;5;180:*.jpg=38;5;175:*.png=38;5;175:*.mp3=38;5;175:*.wav=38;5;175:*.txt=38;5;223:*.sh=38;5;132"
-      if [[ "$(uname)" == "Darwin" ]]; then
-        alias ls='ls --color=auto'
-      else
-        alias ls='gls --color=auto'
       fi
     '';
   };
