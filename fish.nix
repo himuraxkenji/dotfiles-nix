@@ -183,12 +183,6 @@
     set -g fish_pager_color_completion $foreground
     set -g fish_pager_color_description $comment
 
-# Go workspace
-    set -Ux GOPATH $HOME/go
-    set -Ux GOBIN $GOPATH/bin
-    set -Ux GOROOT $HOME/.nix-profile/share/go
-
-    set -x PATH "$GOPATH/bin:$PATH"
     clear
     '';
 
