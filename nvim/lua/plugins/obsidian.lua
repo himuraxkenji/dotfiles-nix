@@ -14,11 +14,11 @@ return {
       },
     },
     daily_notes = {
-      folder = "01 - Daily Notes",
+      folder = "daily",
       date_format = "%Y-%m-%d",
-      template = "999 - Template/daily.md", -- Template for daily notes
+      template = "templates/daily.md", -- Template for daily notes
     },
-    notes_subdir = "00 - Inbox",
+    notes_subdir = "00-Inbox",
     new_notes_location = "notes_subdir",
     completition = {
       blink = true,
@@ -64,7 +64,7 @@ return {
     end,
     -- Settings for templates
     templates = {
-      subdir = "999 - Template", -- Subdirectory for templates
+      subdir = "templates", -- Subdirectory for templates
       date_format = "%Y-%m-%d-%a", -- Date format for templates
       gtime_format = "%H:%M", -- Time format for templates
       tags = "", -- Default tags for templates
